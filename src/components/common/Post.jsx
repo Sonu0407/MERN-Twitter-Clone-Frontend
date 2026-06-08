@@ -18,7 +18,7 @@ const Post = ({ post, allPosts, setAllPosts, authUserId }) => {
 
   const handleDeletePost = async () => {
     try {
-      const url = `/api/posts/${post._id}`;
+      const url = `${import.meta.env.VITE_API_URL}/api/posts/${post._id}`;
       const response = await fetch(url, {
         method: "DELETE",
         credentials: "include",
@@ -41,7 +41,7 @@ const Post = ({ post, allPosts, setAllPosts, authUserId }) => {
   const handlePostComment = async (e) => {
     e.preventDefault();
     try {
-      const url = `/api/posts/comment/${post._id}`;
+      const url = `${import.meta.env.VITE_API_URL}/api/posts/comment/${post._id}`;
       const response = await fetch(url, {
         method: "POST",
         credentials: "include",
@@ -73,7 +73,7 @@ const Post = ({ post, allPosts, setAllPosts, authUserId }) => {
   const handleLikePost = async () => {
     try {
       setIsLiking(true);
-      const url = `/api/posts/like/${post._id}`;
+      const url = `${import.meta.env.VITE_API_URL}/api/posts/like/${post._id}`;
       const response = await fetch(url, {
         method: "POST",
         credentials: "include",

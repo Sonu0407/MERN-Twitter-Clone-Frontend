@@ -18,7 +18,7 @@ const Sidebar = () => {
   useEffect(() => {
     const getAuthUser = async () => {
       try {
-        const url = "/api/auth/me";
+        const url = `${import.meta.env.VITE_API_URL}/api/auth/me`;
         const response = await fetch(url, {
           method: "GET",
           credentials: "include",
@@ -29,7 +29,7 @@ const Sidebar = () => {
           throw new Error(data.error);
         }
 
-        console.log(data);
+        // console.log(data);
 
         if (response.ok) {
           setData(data);
@@ -44,7 +44,7 @@ const Sidebar = () => {
   const handleLogout = async (e) => {
     e.preventDefault();
     try {
-      const url = "/api/auth/logout";
+      const url = `${import.meta.env.VITE_API_URL}/api/auth/logout`;
       const response = await fetch(url, {
         method: "POST",
         credentials: "include",

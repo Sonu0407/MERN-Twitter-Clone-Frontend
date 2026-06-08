@@ -13,7 +13,7 @@ const RightPanel = () => {
     const getSuggestedUsers = async (req, res) => {
       try {
         setIsLoading(true);
-        const url = "/api/users/suggested";
+        const url = `${import.meta.env.VITE_API_URL}/api/users/suggested`;
         const response = await fetch(url, {
           method: "GET",
           credentials: "include",
@@ -45,7 +45,7 @@ const RightPanel = () => {
 
   if (suggestedUsers?.length === 0) return <div className="md:w-64  w-0"></div>;
 
-  console.log(suggestedUsers);
+  // console.log(suggestedUsers);
 
   return (
     <div className="hidden lg:block my-4 mx-2">

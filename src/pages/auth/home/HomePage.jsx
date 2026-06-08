@@ -12,11 +12,11 @@ const HomePage = () => {
   const getPostEndpoint = () => {
     switch (feedType) {
       case "foryou":
-        return "/api/posts/all";
+        return `${import.meta.env.VITE_API_URL}/api/posts/all`;
       case "following":
-        return "/api/posts/following";
+        return `${import.meta.env.VITE_API_URL}/api/posts/following`;
       default:
-        return "/api/posts/all";
+        return `${import.meta.env.VITE_API_URL}/api/posts/all`;
     }
   };
 

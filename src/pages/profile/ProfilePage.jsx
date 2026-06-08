@@ -43,7 +43,7 @@ const ProfilePage = () => {
     const getUser = async () => {
       try {
         setIsLoading(true);
-        const url = `/api/users/profile/${username}`;
+        const url = `${import.meta.env.VITE_API_URL}/api/users/profile/${username}`;
         const response = await fetch(url, {
           method: "GET",
           credentials: "include",
@@ -56,7 +56,7 @@ const ProfilePage = () => {
         } else {
           setUser(user);
         }
-        console.log(user);
+        // console.log(user);
       } catch (error) {
         console.log("Error in getUser function", error.message);
       } finally {
@@ -69,7 +69,7 @@ const ProfilePage = () => {
 
   const getUserPosts = async () => {
     try {
-      const url = `/api/posts/user/${username}`;
+      const url = `${import.meta.env.VITE_API_URL}/api/posts/user/${username}`;
       const response = await fetch(url, {
         method: "GET",
         credentials: "include",
@@ -117,7 +117,7 @@ const ProfilePage = () => {
   const handleUpdateProfile = async () => {
     try {
       setIsUpdating(true);
-      const url = "/api/users/update";
+      const url = `${import.meta.env.VITE_API_URL}/api/users/update`;
       const response = await fetch(url, {
         method: "POST",
         credentials: "include",
@@ -136,7 +136,7 @@ const ProfilePage = () => {
         throw new Error(data.error);
       }
 
-      console.log(data);
+      // console.log(data);
       setUser(data);
       toast.success("Profile Updated Successfully");
       window.location.reload();
@@ -148,11 +148,11 @@ const ProfilePage = () => {
     }
   };
 
-  console.log(user);
+  // console.log(user);
 
-  console.log(isFollowing);
+  // console.log(isFollowing);
 
-  console.log(isMyProfile);
+  // console.log(isMyProfile);
 
   return (
     <>

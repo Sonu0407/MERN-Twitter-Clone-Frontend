@@ -7,7 +7,7 @@ const useAuthUser = () => {
   useEffect(() => {
     const getAuthUser = async () => {
       try {
-        const url = "/api/auth/me";
+        const url = `${import.meta.env.VITE_API_URL}/api/auth/me`;
         const response = await fetch(url, {
           method: "GET",
           credentials: "include",

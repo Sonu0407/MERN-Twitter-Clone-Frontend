@@ -30,8 +30,7 @@ const SignUpPage = () => {
 
     try {
       setIsLoading(true);
-
-      const url = "/api/auth/signup";
+      const url = `${import.meta.env.VITE_API_URL}/api/auth/signup`;
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -55,11 +54,11 @@ const SignUpPage = () => {
         setIsError(false);
         toast.success("Registered Successfully");
         navigate("/login");
-        console.log(data);
+        // console.log(data);
       }
     } catch (error) {
       setIsError(true);
-      console.log(isError);
+      // console.log(isError);
       console.log("Error in handleSubmit function", error.message);
       toast.error(error.message);
     } finally {

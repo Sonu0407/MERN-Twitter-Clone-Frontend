@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     const getAuthUser = async () => {
       try {
-        const res = await fetch("/api/auth/me", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/me`, {
           credentials: "include",
         });
 
@@ -35,7 +35,7 @@ function App() {
           throw new Error(data.error || "Something went wrong");
         }
 
-        console.log("authUser is here:", data);
+        // console.log("authUser is here:", data);
         setAuthUser(data);
       } catch (error) {
         console.log(error.message);

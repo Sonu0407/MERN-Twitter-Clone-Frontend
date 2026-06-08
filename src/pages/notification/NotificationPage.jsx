@@ -15,7 +15,7 @@ const NotificationPage = () => {
     const getAllNotifications = async () => {
       try {
         setIsLoading(true);
-        const url = "/api/notifications";
+        const url = `${import.meta.env.VITE_API_URL}/api/notifications`;
         const response = await fetch(url, {
           method: "GET",
           credentials: "include",
@@ -41,7 +41,7 @@ const NotificationPage = () => {
   const deleteNotifications = async () => {
     try {
       setIsLoading(true);
-      const url = "/api/notifications";
+      const url = `${import.meta.env.VITE_API_URL}/api/notifications`;
       const response = await fetch(url, {
         method: "DELETE",
         credentials: "include",

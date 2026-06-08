@@ -7,7 +7,7 @@ const useFollow = (onSuccess) => {
   const follow = async (userId) => {
     try {
       setIsPending(true);
-      const url = `/api/users/follow/${userId}`;
+      const url = `${import.meta.env.VITE_API_URL}/api/users/follow/${userId}`;
       const response = await fetch(url, {
         method: "POST",
         credentials: "include",

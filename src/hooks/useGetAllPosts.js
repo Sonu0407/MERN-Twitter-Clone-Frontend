@@ -8,7 +8,7 @@ const useGetAllPosts = () => {
   const fetchPosts = async () => {
     try {
       setIsLoading(false);
-      const url = "/api/posts/all";
+      const url = `${import.meta.env.VITE_API_URL}/api/posts/all`;
       const response = await fetch(url, {
         method: "GET",
         credentials: "include",

@@ -27,7 +27,7 @@ const CreatePost = ({ setData, data }) => {
     } else {
       try {
         setIsPending(true);
-        const url = "/api/posts/create";
+        const url = `${import.meta.env.VITE_API_URL}/api/posts/create`;
         const response = await fetch(url, {
           method: "POST",
           credentials: "include",
@@ -51,7 +51,7 @@ const CreatePost = ({ setData, data }) => {
           setText("");
           setImg(null);
         }
-        console.log("new Post: ", newPost);
+        // console.log("new Post: ", newPost);
       } catch (error) {
         console.log("Error in handleSubmit CreatePost.jsx", error.message);
         toast.error("Failed To Create Post");

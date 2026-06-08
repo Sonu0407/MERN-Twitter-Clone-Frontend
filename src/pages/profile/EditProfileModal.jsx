@@ -39,7 +39,7 @@ const EditProfileModal = ({ authUser }) => {
   const handleUpdateProfile = async () => {
     try {
       setIsUpdating(true);
-      const url = "/api/users/update";
+      const url = `${import.meta.env.VITE_API_URL}/api/users/update`;
       const response = await fetch(url, {
         method: "POST",
         credentials: "include",
@@ -55,7 +55,7 @@ const EditProfileModal = ({ authUser }) => {
         throw new Error(data.error);
       }
 
-      console.log(data);
+      // console.log(data);
       toast.success("Profile Update Successfully");
       window.location.reload();
       if (data.username !== username) {

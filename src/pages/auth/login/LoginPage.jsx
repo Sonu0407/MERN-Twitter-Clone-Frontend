@@ -24,11 +24,11 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    // console.log(formData);
 
     try {
       setIsLoading(true);
-      const url = "/api/auth/login";
+      const url = `${import.meta.env.VITE_API_URL}/api/auth/login`;
       const response = await fetch(url, {
         method: "POST",
         headers: {
